@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { Header, Container, Content} from 'native-base';
 import {StyleSheet, Text, View} from 'react-native';
 import AppFooter from './containers/AppFooterContainer';
-import AppDailyList from './components/AppDailyList';
+import DayPlan from './components/DayPlan';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import reducers from './reducers';
@@ -26,7 +26,8 @@ export default class App extends Component {
         <Container>
             <Header />
             <Content scrollEnabled={true}>
-              <AppDailyList/>
+              <DayPlan day = 'Понедельник' />
+              <DayPlan day = 'Вторник' />
             </Content>
             <AppFooter/>
         </Container>

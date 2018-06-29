@@ -61,4 +61,4 @@ export default class SwipeRowExample extends Component {
                 React.createElement(Text, null, " Accept "))));
     }
 }
-//# sourceMappingURL=AppDailyList.js.map
+//# sourceMappingURL=DailyList.js.map

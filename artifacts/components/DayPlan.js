@@ -4,18 +4,15 @@ import { SwipeRow, View, Text, Icon, Button, Item, Input, ListItem, List } from 
 import styles from '../styles';
 const NONE = 'none';
 const FLEX = 'flex';
-export default class SwipeRowExample extends Component {
+export default class DayPlan extends Component {
     constructor(props) {
         super(props);
         this.onDisplay = () => {
-            console.log('onDisplay');
-            console.log(this.state.dataS);
             this.setState({
                 inputTextDisplay: FLEX
             });
         };
         this.setRow = () => {
-            console.log('setRow');
             let newData = this.state.dataS ? this.state.dataS : [];
             let obj = {
                 hh: +this.state.selectedHours,
@@ -41,13 +38,12 @@ export default class SwipeRowExample extends Component {
             selectedHours: '0',
             selectedMinutes: '0',
         };
-        console.log(this.state.dataS);
     }
     render() {
         return (React.createElement(View, null,
             React.createElement(SwipeRow, { leftOpenValue: 75, left: React.createElement(Button, { success: true, onPress: this.onDisplay },
                     React.createElement(Icon, { active: true, name: "add" })), body: React.createElement(View, null,
-                    React.createElement(Text, { style: styles.itemHeaderStyle }, "\u041F\u043E\u043D\u0435\u0434\u0435\u043B\u044C\u043D\u0438\u043A")) }),
+                    React.createElement(Text, { style: styles.itemHeaderStyle }, this.props.day)) }),
             React.createElement(List, null, this.state.dataS.map((item, i) => (React.createElement(ListItem, { key: i },
                 React.createElement(Text, null, item.hh + ' : ' + item.mm + ' - ' + item.name))))),
             React.createElement(View, { style: { flexDirection: "row", justifyContent: 'space-between', display: this.state.inputTextDisplay } },
@@ -61,4 +57,4 @@ export default class SwipeRowExample extends Component {
                 React.createElement(Text, null, " Accept "))));
     }
 }
-//# sourceMappingURL=AppDailyList.js.map
+//# sourceMappingURL=DayPlan.js.map
