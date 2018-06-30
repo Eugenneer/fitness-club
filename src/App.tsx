@@ -2,8 +2,8 @@ import React from 'react'
 import { Component } from 'react';
 import { Header, Container, Content} from 'native-base';
 import {StyleSheet, Text, View} from 'react-native';
-import AppFooter from './containers/AppFooterContainer';
-import DayPlan from './components/DayPlan';
+import AppFooterContainer from './containers/AppFooterContainer';
+import WeakList from './components/WeakList';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import reducers from './reducers';
@@ -14,22 +14,20 @@ const initialState: any = {
   logIn: 'ADMIN'
 }
 const store = createStore(reducers, initialState);
-console.log(store.getState())
 interface Props {
 }
 interface State {
 }
-export default class App extends Component {
+export default class App extends Component<Props, State> {
   render() {
     return (
       <Provider store={store}>
         <Container>
-            <Header />
-            <Content scrollEnabled={true}>
-              <DayPlan day = 'Понедельник' />
-              <DayPlan day = 'Вторник' />
-            </Content>
-            <AppFooter/>
+          <Content>
+            <Header/>
+            <WeakList/>
+          </Content>  
+          <AppFooterContainer/>
         </Container>
       </Provider> 
    );

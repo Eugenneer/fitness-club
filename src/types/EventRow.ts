@@ -1,6 +1,6 @@
 export interface EventRow {
-    hh: number,
-    mm: number,
+    hh: string,
+    mm: string,
     name: string,
     description: string
 }
