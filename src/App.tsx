@@ -9,27 +9,37 @@ import {createStore} from 'redux';
 import reducers from './reducers';
 import {MODES} from './constants';
 import styles from './styles'
+import {AppContainerRedux} from './components/AppContainer';
+import Expo from 'expo'
 const initialState: any = {
-  modes: MODES.DAILYLIST,
+  mode: MODES.DAILYLIST,
   logIn: 'ADMIN'
 }
 const store = createStore(reducers, initialState);
+
 interface Props {
 }
+
 interface State {
 }
+
 export default class App extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props)
+  }
+  
   render() {
+    console.log('Store', store.getState())
     return (
-      <Provider store={store}>
-        <Container>
-          <Content>
-            <Header/>
-            <WeakList/>
-          </Content>  
-          <AppFooterContainer/>
-        </Container>
-      </Provider> 
+        <Provider store={store}>
+          <Container>
+            <Content>
+              <Header/>
+              <AppContainerRedux/>
+            </Content>  
+            <AppFooterContainer/>
+          </Container>
+        </Provider> 
    );
   }
 }

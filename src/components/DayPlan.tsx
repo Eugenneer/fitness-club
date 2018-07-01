@@ -14,7 +14,6 @@ interface Props {
 }
 
 interface State {
-  inputText: string,
   inputTextDisplay: 'none'|'flex',
   dataS: Array<any>,
   selectedHours: string,
@@ -23,8 +22,6 @@ interface State {
   edit: boolean,
   editButtonDisplay: 'none'|'flex',
   acceptButtonDisplay: 'none'|'flex',
-  editAcceptFunc: any,
-  editAcceptButName: string,
   indexOfSelectedElement: number,
 }
 
@@ -79,6 +76,7 @@ interface State {
       selectedEvent: ''
     })
   }
+
   onDelete = (element: EventRow) => {
     let newData = this.state.dataS
         newData.splice(newData.indexOf(element),1)
@@ -90,6 +88,7 @@ interface State {
           selectedEvent: ''
         })    
   }
+
   onEdit = (element: EventRow, index:number) => {
     this.setState({
       edit: true,
@@ -101,6 +100,7 @@ interface State {
       indexOfSelectedElement: index
     })
   }
+
   remake = () => {
     let newData = this.state.dataS
         newData[this.state.indexOfSelectedElement] = {
@@ -116,6 +116,7 @@ interface State {
       editButtonDisplay: NONE, 
     })
   }
+  
   render() {
     return (
       <View>

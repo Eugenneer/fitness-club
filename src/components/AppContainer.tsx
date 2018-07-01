@@ -1,22 +1,29 @@
 import React from 'react';
+import { Text } from 'react-native'
 import AppFooter from '../components/AppFooter.js';
 import {connect} from 'react-redux';
 import {setMode} from '../actions/actions';
 import { Component } from 'react';
+import { MODES } from '../constants';
+import WeakList from './WeakList';
 
 interface Props extends StateFromProps, DispatchFromProps {}
 interface State {}
 
-class AppFooterContainer extends React.Component<Props, State> {
+class AppContainer extends React.Component<Props, State> {
 	constructor(props: Props) {
 		super(props)
+		console.log(props)
 	}
 	
 	render() {
-		console.log('Mode', this.props.mode)
+		console.log('AppContainerMode', this.props.mode)
 		return (
-			<AppFooter mode={this.props.mode} setMode={this.props.setMode} />
-		)
+            this.props.mode === MODES.DAILYLIST ?
+              <WeakList/>
+            :
+              <Text>Hello</Text>
+        )
 	}
 }
 
@@ -25,7 +32,6 @@ interface StateFromProps {
 }
 
 interface DispatchFromProps {
-    setMode(mode: any): void,
 }
 
 const mapStateToProps = (state: any) => ({
@@ -33,13 +39,10 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) : DispatchFromProps => ({
-	setMode(mode: any) {
-		dispatch(setMode(mode));
-	}
 });
 
 
-export default connect<StateFromProps, DispatchFromProps>(
+export let AppContainerRedux = connect<StateFromProps, DispatchFromProps>(
 	mapStateToProps,
 	mapDispatchToProps
-)(AppFooterContainer);
+)(AppContainer);
