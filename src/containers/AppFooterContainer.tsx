@@ -1,8 +1,7 @@
 import React from 'react';
-import AppFooter from '../components/AppFooter.js';
+import AppFooter from '../components/AppFooter';
 import {connect} from 'react-redux';
 import {setMode} from '../actions/actions';
-import { Component } from 'react';
 
 interface Props extends StateFromProps, DispatchFromProps {}
 interface State {}

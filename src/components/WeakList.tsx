@@ -2,6 +2,7 @@ import React from 'react'
 import { Component } from 'react'
 import { View } from 'react-native'
 import DayPlan from './DayPlan'
+import { Content, Header, Container } from 'native-base';
 
 const WEAK = [
     'Понедельник',
@@ -23,11 +24,14 @@ interface State {
 export default class WeakList extends Component<Props, State>{
     render(){
         return(
-            <View>
-            {
-               WEAK.map((item:string,i:number) => ( <DayPlan day = {item} /> ))
-            }
-            </View>    
+                <Container>
+                    <Content>
+                        <Header/>
+                        {
+                        WEAK.map((item:string,i:number) => ( <DayPlan day = {item} /> ))
+                        }
+                    </Content>
+                </Container>  
         )
     }
 }

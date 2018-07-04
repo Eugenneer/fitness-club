@@ -6,6 +6,7 @@ import {setMode} from '../actions/actions';
 import { Component } from 'react';
 import { MODES } from '../constants';
 import WeakList from './WeakList';
+import AppNavigation from '../components/AppNavigation';
 
 interface Props extends StateFromProps, DispatchFromProps {}
 interface State {}
@@ -22,7 +23,7 @@ class AppContainer extends React.Component<Props, State> {
             this.props.mode === MODES.DAILYLIST ?
               <WeakList/>
             :
-              <Text>Hello</Text>
+              <AppNavigation/>
         )
 	}
 }

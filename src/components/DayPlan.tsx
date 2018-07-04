@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { Component } from 'react';
 import { Picker, SwipeRow, View, Text, Icon, Button, Item, Input, ListItem, List } from 'native-base';
-import styles from '../styles'
-import {EventRow} from '../types/EventRow'
+import styles from '../styles';
+import {EventRow} from '../types/EventRow';
 
 const NONE = 'none'
 const FLEX = 'flex'
@@ -120,6 +120,7 @@ interface State {
   render() {
     return (
       <View>
+        
         <SwipeRow
           leftOpenValue={75}
           left={
@@ -133,6 +134,7 @@ interface State {
             </View>
           }
         />
+       
         <List>
         {
            this.state.dataS.map((item,i) => (
@@ -159,6 +161,7 @@ interface State {
            ))
          }
         </List>
+        
         <View style={{ flexDirection: "row", justifyContent: 'space-between', display: this.state.inputTextDisplay}}>
           <Item style = {styles.hourStyle}>
             <Input placeholder='hh' value = {this.state.selectedHours} maxLength = {MAXLENGTH} onChangeText={(selectedHours) => this.setState({selectedHours})}/>
@@ -177,6 +180,7 @@ interface State {
             </Picker>
           </Item>
         </View>
+        
         <View style={{ flexDirection: "row", left: 0, right: 0, justifyContent: 'space-between', display: this.state.inputTextDisplay }}>
           <Button primary onPress = {this.setRow} style={{margin: 1, display: this.state.acceptButtonDisplay}}><Text> Accept </Text></Button>
           <Button primary onPress = {this.remake} style={{margin: 1, display: this.state.editButtonDisplay}}><Text> Save </Text></Button>
