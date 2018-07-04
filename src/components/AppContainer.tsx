@@ -7,6 +7,7 @@ import { Component } from 'react';
 import { MODES } from '../constants';
 import WeakList from './WeakList';
 import AppNavigation from '../components/AppNavigation';
+import AppCamera from './AppCamera';
 
 interface Props extends StateFromProps, DispatchFromProps {}
 interface State {}
@@ -22,8 +23,9 @@ class AppContainer extends React.Component<Props, State> {
 		return (
             this.props.mode === MODES.DAILYLIST ?
               <WeakList/>
-            :
-              <AppNavigation/>
+			: this.props.mode === MODES.CAMERA ?
+				<AppCamera/>
+			: 	<AppNavigation/>	
         )
 	}
 }

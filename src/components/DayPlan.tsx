@@ -4,6 +4,7 @@ import { Picker, SwipeRow, View, Text, Icon, Button, Item, Input, ListItem, List
 import styles from '../styles';
 import {EventRow} from '../types/EventRow';
 
+console.disableYellowBox = true;
 const NONE = 'none'
 const FLEX = 'flex'
 const MAXLENGTH = 2

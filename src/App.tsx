@@ -11,6 +11,8 @@ import {MODES} from './constants';
 import styles from './styles'
 import {AppContainerRedux} from './components/AppContainer';
 
+console.disableYellowBox = true;
+
 const initialState: any = {
   mode: MODES.DAILYLIST,
   logIn: 'ADMIN'

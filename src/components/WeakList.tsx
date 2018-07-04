@@ -3,7 +3,7 @@ import { Component } from 'react'
 import { View } from 'react-native'
 import DayPlan from './DayPlan'
 import { Content, Header, Container } from 'native-base';
-
+console.disableYellowBox = true;
 const WEAK = [
     'Понедельник',
     'Вторник',
