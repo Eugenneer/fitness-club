@@ -2,6 +2,12 @@ import React from 'react'
 import { Component } from 'react';
 import { Footer, FooterTab, Button, Icon, Text, Badge } from 'native-base';
 import {MODES} from "../constants";
+interface Props {
+
+}
+interface State {
+  
+}
 const AppFooter = ({mode = MODES.DAILYLIST, setMode = (el) => {el}}) => (
         <Footer>
           <FooterTab>

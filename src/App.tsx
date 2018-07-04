@@ -2,35 +2,44 @@ import React from 'react'
 import { Component } from 'react';
 import { Header, Container, Content} from 'native-base';
 import {StyleSheet, Text, View} from 'react-native';
-import AppFooter from './containers/AppFooterContainer';
-import AppDailyList from './components/AppDailyList';
+import AppFooterContainer from './containers/AppFooterContainer';
+import WeakList from './components/WeakList';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import reducers from './reducers';
 import {MODES} from './constants';
 import styles from './styles'
+import {AppContainerRedux} from './components/AppContainer';
+import Expo from 'expo'
 const initialState: any = {
-  modes: MODES.DAILYLIST,
+  mode: MODES.DAILYLIST,
   logIn: 'ADMIN'
 }
 const store = createStore(reducers, initialState);
-console.log(store.getState())
+
 interface Props {
 }
+
 interface State {
 }
-export default class App extends Component {
+
+export default class App extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props)
+  }
+  
   render() {
+    console.log('Store', store.getState())
     return (
-      <Provider store={store}>
-        <Container>
-            <Header />
-            <Content scrollEnabled={true}>
-              <AppDailyList/>
-            </Content>
-            <AppFooter/>
-        </Container>
-      </Provider> 
+        <Provider store={store}>
+          <Container>
+            <Content>
+              <Header/>
+              <AppContainerRedux/>
+            </Content>  
+            <AppFooterContainer/>
+          </Container>
+        </Provider> 
    );
   }
 }

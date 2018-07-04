@@ -1,8 +1,8 @@
 {
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 2256,
+  "expoServerNgrokUrl": "https://yt-vfi.kotnor.fitness-club.exp.direct",
+  "packagerNgrokUrl": "https://packager.yt-vfi.kotnor.fitness-club.exp.direct",
+  "ngrokPid": 8836
 }
